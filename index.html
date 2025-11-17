@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="#" class="logo">
+        <img src="logo.png" alt="Laundry Logo">
+        <span>Laundry Shop</span>
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">Staff</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>      
+
+    <!-- Mobile Menu Toggle -->
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+</header>
+
+    <section class="hero">
+    <div class="hero-content">
+      <h1>Fresh & Clean Laundry Service</h1>
+      <p>Fast, affordable, and reliable laundry solutions for you.</p>
+      <a href="services.html" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+<section class="services" id="services">
+  <h2>Our Services</h2>
+  <div class="service-cards">
+    
+    <div class="card">
+      <div class="icon-circle">
+        <img src="washing.png" alt="Washing">
+      </div>
+      <h3>Washing</h3>
+      <p>High-quality washing with care for all fabrics.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle">
+        <img src="dry.png" alt="Dry Cleaning">
+      </div>
+      <h3>Dry Cleaning</h3>
+      <p>Professional dry cleaning for delicate clothing.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle">
+        <img src="iron.png" alt="Ironing">
+      </div>
+      <h3>Ironing</h3>
+      <p>Neatly pressed clothes ready for your day.</p>
+    </div>
+
+</section>
+
+<section class="staff" id="about">
+  <h2>Our Staff</h2>
+  <div class="staff-cards">
+    <div class="staff-card">
+      <div class="staff-img">
+        <img src="mae.png" alt="mae">
+      </div>
+      <h3>Alfaith Mae</h3>
+      <p>Owner</p>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-img">
+        <img src="april.jpg" alt="april">
+      </div>
+      <h3>April Rose</h3>
+      <p>Supervisor</p>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-img">
+        <img src="yana.jpg" alt="yana">
+      </div>
+      <h3>Ayana Jade</h3>
+      <p>Supervisor</p>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-img">
+        <img src="tina.jpg" alt="tina">
+      </div>
+      <h3>Athena Maia</h3>
+      <p>Manager</p>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-img">
+        <img src="naila.jpg" alt="naila">
+      </div>
+      <h3>Naila</h3>
+      <p>Manager</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+<footer id="contact">
+  <div class="footer-container">
+    
+    <!-- About -->
+    <div class="footer-section">
+      <h3>Laundry Shop</h3>
+      <p>Your trusted laundry partner for fresh, clean clothes every time.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Zamboanga City, Philippines</p>
+      <p><i class="fas fa-phone"></i> +63 912 345 6789</p>
+      <p><i class="fas fa-envelope"></i> support@laundryshop.com</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">Staff</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Laundry Shop. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+  <script>
+    // Toggle menu for mobile
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Services smooth scroll
+   document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1) { // skip plain "#"
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const navHeight = document.querySelector('.navbar').offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+
+      // Handle active class on click
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      this.classList.add('active');
+
+    });
+  });
+  </script>
+
+    
+</body>
+</html>
